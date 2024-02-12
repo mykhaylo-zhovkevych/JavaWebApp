@@ -1,0 +1,28 @@
+@charset "ISO-8859-1";
+
+ .home-content-wrapper {
+  	background-image: url("../image/pexels-felix-mittermeier-956999.jpg");
+    background-size: cover;
+    height: 100%;
+}
+
+.overlay-box {
+    padding: 500px 0px;
+    box-sizing: border-box;
+ 
+    height: 100%;
+}
+
+.container {
+    width: 1200px;
+    margin: 0px auto;
+}
+
+.welcome-text {
+    color: #FFF;
+    font-size: 75px;
+    font-family: raleway-bold;
+    line-height: 90px;
+}
+
+<!-- -->

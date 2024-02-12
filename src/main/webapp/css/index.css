@@ -1,0 +1,137 @@
+@charset "UTF-8";
+h2{
+	background-color: rgba(4, 0, 255, 0.158);
+	
+	margin: 20px !important;
+	border-style: dashed;
+	border-color: rgba(4, 0, 255, 0.158);
+	border-radius: 40px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+p{
+	margin: 50px !important;
+	/*padding-bottom: 20px !important;*/
+	display: flex;
+  	flex-direction: column;
+  	min-height: 100vh; /*The problem still exist*/
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --color-primary: #0000a0;
+    --color-secondary: #0000ff;
+    --color-tertiary: #0080c0;
+    --color-quaternary: #0080ff;
+    --color-quinary: #00ffff;
+}
+
+.changing {
+    text-shadow: 
+        3px 3px 0 var(--color-secondary),
+        6px 6px 0 var(--color-tertiary),
+        9px 9px var(--color-quaternary),
+        12px 12px 0 var(--color-quinary);
+    font-family: bungee, sans-serif;
+    font-weight: 50;
+    text-transform: uppercase;
+    font-size: calc(1rem + 2vw);
+    text-align: center;
+    margin: 0;
+    color: var(--color-primary);
+    animation: shadows 4.5s ease-in infinite;
+    letter-spacing: 0.4rem;
+}
+
+.content {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.text-shadows {
+    text-shadow: 
+        3px 3px 0 var(--color-secondary),
+        6px 6px 0 var(--color-tertiary),
+        9px 9px var(--color-quaternary),
+        12px 12px 0 var(--color-quinary);
+    font-family: bungee, sans-serif;
+    font-weight: 50;
+    text-transform: uppercase;
+    font-size: calc(1rem + 2vw);
+    text-align: center;
+    margin: 0;
+    color: var(--color-primary);
+    animation: shadows 4.5s ease-in infinite;
+    letter-spacing: 0.4rem;
+}
+
+@keyframes shadows {
+    0% {
+        text-shadow: none;
+    }
+    10% {
+        transform: translate(-3px, -3px);
+        text-shadow: 3px 3px 0 var(--color-secondary);
+    }
+    20% {
+        transform: translate(-6px, -6px);
+        text-shadow: 
+            3px 3px 0 var(--color-secondary),
+            6px 6px 0 var(--color-tertiary);
+    }
+    30% {
+        transform: translate(-9px, -9px);
+        text-shadow: 
+            3px 3px 0 var(--color-secondary),
+            6px 6px 0 var(--color-tertiary),
+            9px 9px var(--color-quaternary);
+    }
+    40% {
+        transform: translate(-12px, -12px);
+        text-shadow: 
+            3px 3px 0 var(--color-secondary),
+            6px 6px 0 var(--color-tertiary),
+            9px 9px var(--color-quaternary),
+            12px 12px 0 var(--color-quinary);
+    }
+    50% {
+        transform: translate(-12px, -12px);
+        text-shadow: 
+            3px 3px 0 var(--color-secondary),
+            6px 6px 0 var(--color-tertiary),
+            9px 9px var(--color-quaternary),
+            12px 12px 0 var(--color-quinary);
+    }
+    60% {
+        text-shadow: 
+            3px 3px 0 var(--color-secondary),
+            6px 6px 0 var(--color-tertiary),
+            9px 9px var(--color-quaternary),
+            12px 12px 0 var(--color-quinary);
+    }
+    70% {
+        text-shadow: 
+            3px 3px 0 var(--color-secondary),
+            6px 6px 0 var(--color-tertiary),
+            9px 9px var(--color-quaternary);
+    }
+    80% {
+        text-shadow: 
+            3px 3px 0 var(--color-secondary),
+            6px 6px 0 var(--color-tertiary);
+    }
+    90% {
+        text-shadow: 
+            3px 3px 0 var(--color-secondary);
+    }
+    100% {
+        text-shadow: none;
+    }
+}
