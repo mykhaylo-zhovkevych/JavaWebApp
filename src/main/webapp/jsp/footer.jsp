@@ -14,7 +14,7 @@
     <div class="container">
         <!-- Copyright -->
         <div class="text-center py-3">© 2023 Copyright:
-            <a href="https://codedec.com/"> Codedec.com</a>
+            <a> MZ </a>
         </div>
         <!-- Copyright -->
     </div>

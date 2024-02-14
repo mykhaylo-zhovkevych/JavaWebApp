@@ -184,4 +184,100 @@ try {
 return i;
 }
 
+//----------------------------------------------------------------------
+public static long addWord(String word, String definition, String extraInfo) {
+    long result = 0;
+    Connection conn = null;
+    PreparedStatement stmt = null;
+
+    try {
+        conn = JDBCDataSource.getConnection();
+        stmt = conn.prepareStatement("INSERT INTO vocabulary (word, definition, extra_info) VALUES (?, ?, ?)");
+        stmt.setString(1, word);
+        stmt.setString(2, definition);
+        stmt.setString(3, extraInfo);
+        result = stmt.executeUpdate();
+    } catch (Exception e) {
+        e.printStackTrace();
+    } finally {
+        JDBCDataSource.closeConnection(conn, stmt);
+    }
+
+    return result;
 }
+// might be dangerous-----------------------------
+public static long deleteWord(String word) {
+    long result = 0;
+    Connection conn = null;
+    PreparedStatement stmt = null;
+
+    try {
+        conn = JDBCDataSource.getConnection();
+        stmt = conn.prepareStatement("DELETE FROM vocabulary WHERE word = ?");
+        stmt.setString(1, word);
+        result = stmt.executeUpdate();
+    } catch (Exception e) {
+        e.printStackTrace();
+    } finally {
+        JDBCDataSource.closeConnection(conn, stmt);
+    }
+
+    return result;
+}
+/*
+public static List<String> getAllWords() {
+    List<String> words = new ArrayList<>();
+    Connection conn = null;
+    PreparedStatement stmt = null;
+    ResultSet rs = null;
+
+    try {
+        conn = JDBCDataSource.getConnection();
+        stmt = conn.prepareStatement("SELECT word FROM vocabulary");
+        rs = stmt.executeQuery();
+
+        while (rs.next()) {
+            words.add(rs.getString("word"));
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    } finally {
+        JDBCDataSource.closeConnection(conn, stmt, rs);
+    }
+
+    return words;
+}
+*/
+public static List<UserBean> getAllWordsAsBean() {
+    List<UserBean> words = new ArrayList<>();
+    Connection conn = null;
+    PreparedStatement stmt = null;
+    ResultSet rs = null;
+
+    try {
+        conn = JDBCDataSource.getConnection();
+        stmt = conn.prepareStatement("SELECT * FROM vocabulary;");
+        rs = stmt.executeQuery();
+
+        while (rs.next()) {
+            UserBean word = new UserBean();
+            word.setId(rs.getLong("id"));
+            word.setName(rs.getString("word"));
+            word.setDefinition(rs.getString("definition"));
+            word.setExtraInfo(rs.getString("extra_info"));
+            words.add(word);
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    } finally {
+        JDBCDataSource.closeConnection(conn, stmt, rs);
+    }
+
+    return words;
+}
+
+}
+
+
+
+

@@ -1,6 +1,7 @@
 package javawebapplication.utitlity;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
@@ -47,18 +48,34 @@ public class JDBCDataSource {
         }
     }
 
+    public static void closeConnection(Connection connection, Statement statement, ResultSet resultSet) {
+        if (resultSet != null) {
+            try {
+                resultSet.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        closeConnection(connection, statement);
+    }
+
     public static void closeConnection(Connection connection, Statement statement) {
-        try {
-            if (statement != null) {
+        if (statement != null) {
+            try {
                 statement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
-            if (connection != null) {
+        }
+        if (connection != null) {
+            try {
                 connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
-        } catch (Exception e) {
-            // Log or handle the exception as needed
         }
     }
+
     
     
     public static void main(String[] args) {

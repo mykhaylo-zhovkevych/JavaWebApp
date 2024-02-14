@@ -34,4 +34,8 @@ public String rootPage = PAGE_FOLDER + "/rootPage.jsp"; // Mapping for the root 
 
 public String userWievList = PAGE_FOLDER + "/userViewList.jsp";
 public String userListctl = APP_CONTEXT + "/userListctl";
+
+public String showTable = PAGE_FOLDER + "/showTable.jsp";
+public String dataTable = APP_CONTEXT + "/dataTable";
+
 }

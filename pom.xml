@@ -40,11 +40,35 @@
 </dependency>
 
 
+    <!-- Other dependencies -->
+    <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>jstl</artifactId>
+        <version>1.2</version> <!-- Choose appropriate version -->
+    </dependency>
+
+<dependency>
+    <groupId>jakarta.platform</groupId>
+    <artifactId>jakarta.jakartaee-api</artifactId>
+    <version>9.0.0</version>
+    <scope>provided</scope>
+</dependency>
+
+
   	<dependency>
   		<groupId>com.myzm</groupId>
   		<artifactId>webserver</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
   	</dependency>
+  	
+  	<dependency>
+	<groupId>org.apache.taglibs</groupId>
+	<artifactId>taglibs-standard-impl</artifactId>
+	<version>1.2.5</version>
+</dependency>
+<!-- Thanks for using https://jar-download.com -->
+
+  	
   </dependencies>
   <build>
     <finalName>JavaWebProject</finalName>

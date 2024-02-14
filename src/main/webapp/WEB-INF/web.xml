@@ -46,6 +46,12 @@
   	<description></description>
   	<servlet-class>javawebapplication.controller.URLCheckerServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>dataTable</servlet-name>
+  	<display-name>dataTable</display-name>
+  	<description></description>
+  	<servlet-class>javawebapplication.controller.dataTable</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>loginctl</servlet-name>
   	<url-pattern>/loginctl</url-pattern>
@@ -70,7 +76,11 @@
   	<servlet-name>userListctlFilter</servlet-name>
   	<url-pattern>/userListctlFilter</url-pattern>
   </servlet-mapping>
-  
+  <servlet-mapping>
+  	<servlet-name>dataTable</servlet-name>
+  	<url-pattern>/dataTable</url-pattern>
+  </servlet-mapping>
+
  
   </web-app>
 
