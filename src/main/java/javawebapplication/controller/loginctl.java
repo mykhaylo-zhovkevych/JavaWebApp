@@ -36,7 +36,7 @@ public class loginctl extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//oldCODE_______________________________
+		//oldcode
 	/*
 		RequestDispatcher rd = request.getRequestDispatcher(JWAView.LoginView);
 		rd.forward(request, response);*/
