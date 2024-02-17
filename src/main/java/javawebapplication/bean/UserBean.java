@@ -12,6 +12,7 @@ public class UserBean {
     private String mobileNo;
     private long id;
     private boolean isRoot;
+    private boolean isApproved; // New field added
     private String definition;
     private String extraInfo;
 
@@ -95,6 +96,14 @@ public class UserBean {
     public void setExtraInfo(String extraInfo) {
         this.extraInfo = extraInfo;
     }
+    public boolean isApproved() {
+        return isApproved;
+    }
+
+    public void setApproved(boolean approved) {
+        isApproved = approved;
+    }
+    
 }
 
     

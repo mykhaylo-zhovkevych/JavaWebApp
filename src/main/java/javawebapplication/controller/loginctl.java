@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import javawebapplication.bean.UserBean;
 import javawebapplication.model.UserModel;
+import javawebapplication.utitlity.DataUtility;
 import javawebapplication.utitlity.ServletUtility;
 
 
@@ -46,7 +47,7 @@ public class loginctl extends HttpServlet {
 			session.invalidate();
 			ServletUtility.setSuccessMessage("logout was Sucessfull", request); }
 		ServletUtility.forward(JWAView.LoginView, request, response); }
-	*/
+	*/	 long userId = DataUtility.getLong(request.getParameter("userId"));
 		 HttpSession session = request.getSession(false);
 		    String op = request.getParameter("operation");
 		    if (op != null && op.equals("logout")) {
@@ -69,23 +70,27 @@ public class loginctl extends HttpServlet {
 	    user = UserModel.UserLogin(name, pwd);
 	    
 	    if (user != null) {
+	        // Check if the user is approved
+	        if (!user.isApproved()) {
+	            ServletUtility.setErrorMessage("User is not approved by admin yet", request);
+	            ServletUtility.forward(JWAView.LoginView, request, response);
+	            return; // Stop processing since there's an error
+	        }
 	        
-	    	session.setAttribute("user", user.getName());
-	    	if (user.isRoot()) {
-                // Redirect to root page for root user
-                ServletUtility.redirect(JWAView.rootctl, request, response);
-            } else {	
-  
-            	//Set attribute for session
-           	session.setAttribute("user", user.getName());
-                ServletUtility.redirect(JWAView.loginindividual, request, response);
-            }
-        } else {
-            // Authentication failed, forward back to login view with error message
-            ServletUtility.setErrorMessage("Invalid User", request);
-            ServletUtility.forward(JWAView.LoginView, request, response);
+	        session.setAttribute("user", user.getName());
+	        if (user.isRoot()) {
+	            // Redirect to root page for root user
+	            ServletUtility.redirect(JWAView.rootctl, request, response);
+	        } else {    
+	            // Set attribute for session
+	            session.setAttribute("user", user.getName());
+	            ServletUtility.redirect(JWAView.loginindividual, request, response);
+	        }
+	    } else {
+	        // Authentication failed, forward back to login view with error message
+	        ServletUtility.setErrorMessage("Invalid User", request);
+	        ServletUtility.forward(JWAView.LoginView, request, response);
 	    }
 	}
 }
-
 

@@ -35,6 +35,7 @@ public class userctl extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	//Edit....
         UserModel model = new UserModel();
+        
         long id = DataUtility.getLong(request.getParameter("id"));
         if(id>0) {
           UserBean bean = null;
@@ -118,6 +119,7 @@ public class userctl extends HttpServlet {
         request.getRequestDispatcher(JWAView.userview).forward(request, response);
     }
 }
+
 
 	/*protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub

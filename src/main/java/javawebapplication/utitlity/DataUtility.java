@@ -1,6 +1,5 @@
 package javawebapplication.utitlity;
 
-
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -14,7 +13,7 @@ public class DataUtility {
 	   *  The class uses a SimpleDateFormat for date formatting and provides utility methods to work with different types of data. 
 	   *  The commented-out code suggests that there might be additional functionality related to time formatting that is currently disabled.
 	   */
-	  public static final String APP_DATE_FORMAT = "MM/dd/yyyy";
+	  public static final String APP_DATE_FORMAT = "MM-dd-yyyy";
 	    //    public static final String APP_TIME_FORMAT = "MM/dd/yyyy HH:mm:ss";
 	  /**
 	   * Date formatter

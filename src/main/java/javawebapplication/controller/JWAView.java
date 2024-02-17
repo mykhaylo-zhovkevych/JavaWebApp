@@ -38,4 +38,7 @@ public String userListctl = APP_CONTEXT + "/userListctl";
 public String showTable = PAGE_FOLDER + "/showTable.jsp";
 public String dataTable = APP_CONTEXT + "/dataTable";
 
+public String rootVerifierView = PAGE_FOLDER + "/rootVerifierView.jsp";
+public String rootVerifier = APP_CONTEXT + "/rootVerifier";
+
 }

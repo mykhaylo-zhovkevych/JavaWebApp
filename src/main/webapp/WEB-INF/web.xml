@@ -52,6 +52,18 @@
   	<description></description>
   	<servlet-class>javawebapplication.controller.dataTable</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>dataTableFilter</servlet-name>
+  	<display-name>dataTableFilter</display-name>
+  	<description></description>
+  	<servlet-class>javawebapplication.controller.dataTableFilter</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>rootVerifier</servlet-name>
+  	<display-name>rootVerifier</display-name>
+  	<description></description>
+  	<servlet-class>javawebapplication.controller.rootVerifier</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>loginctl</servlet-name>
   	<url-pattern>/loginctl</url-pattern>
@@ -79,6 +91,14 @@
   <servlet-mapping>
   	<servlet-name>dataTable</servlet-name>
   	<url-pattern>/dataTable</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>dataTableFilter</servlet-name>
+  	<url-pattern>/dataTableFilter</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>rootVerifier</servlet-name>
+  	<url-pattern>/rootVerifier</url-pattern>
   </servlet-mapping>
 
  

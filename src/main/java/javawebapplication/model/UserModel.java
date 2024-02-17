@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-
 import javawebapplication.bean.UserBean;
 import javawebapplication.utitlity.JDBCDataSource;
 
@@ -18,6 +17,92 @@ public class UserModel {
 	DONT TO FORGET TO UPDATE THE DESCRIPTION
 	
 	*/
+		public static boolean approveUser(long id) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        boolean success = false;
+        
+        try {
+            conn = JDBCDataSource.getConnection();
+            pstmt = conn.prepareStatement("UPDATE user SET isApproved = ? WHERE id = ?");
+            pstmt.setBoolean(1, true); // Set isApproved to true
+            pstmt.setLong(2, id);
+            int rowsAffected = pstmt.executeUpdate();
+            
+            // Check if the update was successful
+            if (rowsAffected > 0) {
+                success = true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            JDBCDataSource.closeConnection(conn, pstmt);
+        }
+
+        return success;
+    }
+	
+		 public static List<UserBean> getPendingUser() {
+		        Connection conn = null;
+		        PreparedStatement pstmt = null;
+		        ResultSet rs = null;
+		        List<UserBean> pendingUser = new ArrayList<>();
+
+		        try {
+		            conn = JDBCDataSource.getConnection();
+		            pstmt = conn.prepareStatement("SELECT * FROM user WHERE isApproved = ?");
+		            pstmt.setBoolean(1, false); // Select users that are not yet approved
+		            rs = pstmt.executeQuery();
+
+		            while (rs.next()) {
+		                UserBean user = new UserBean();
+		                // Set user properties from the result set
+		                user.setId(rs.getLong("id"));
+		                user.setFirstName(rs.getString("firstName"));
+		                user.setLastName(rs.getString("lastName"));
+		                user.setName(rs.getString("name"));
+		                user.setPassword(rs.getString("password"));
+		                user.setDob(rs.getDate("dob"));
+		                user.setMobileNo(rs.getString("mobileNo"));
+		                user.setRoot(rs.getBoolean("isRoot"));
+		                user.setApproved(rs.getBoolean("isApproved"));
+
+		                pendingUser.add(user);
+		            }
+		        } catch (Exception e) {
+		            e.printStackTrace();
+		        } finally {
+		            JDBCDataSource.closeConnection(conn, pstmt, rs);
+		        }
+
+		        return pendingUser;
+		    }
+		// rest of code...
+		   public static boolean isUserApproved(long id) {
+	        Connection conn = null;
+	        PreparedStatement pstmt = null;
+	        ResultSet rs = null;
+	        boolean isApproved = false;
+
+	        try {
+	            conn = JDBCDataSource.getConnection();
+	            pstmt = conn.prepareStatement("SELECT isApproved FROM user WHERE id = ?");
+	            pstmt.setLong(1, id);
+	            rs = pstmt.executeQuery();
+
+	            if (rs.next()) {
+	                isApproved = rs.getBoolean("isApproved");
+	            }
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        } finally {
+	            JDBCDataSource.closeConnection(conn, pstmt, rs);
+	        }
+
+	        return isApproved;
+	    }
+		 
+//----------------------------------------------------------------------------		
 	  public static long nextPk() {
 		    long pk = 0;
 		    Connection conn;
@@ -35,12 +120,16 @@ public class UserModel {
 		    return pk+1;
 		    
 		  }
+	  
+
+
+	    // Other methods...
 		  
 	  public static long addUser(UserBean user) {
 		    int i = 0;
 		    try {
 		      Connection conn = JDBCDataSource.getConnection();
-		      PreparedStatement stmt = conn.prepareStatement("insert into user values(?,?,?,?,?,?,?,?)");
+		      PreparedStatement stmt = conn.prepareStatement("insert into user values(?,?,?,?,?,?,?,?,?)");
 		      stmt.setLong(1, nextPk());
 		      stmt.setString(2 , user.getFirstName() );
 		      stmt.setString(3 , user.getLastName() );
@@ -48,7 +137,8 @@ public class UserModel {
 		      stmt.setString(5 , user.getPassword() );
 		      stmt.setDate(6 , new java.sql.Date(user.getDob().getTime()) );
 		      stmt.setString(7 , user.getMobileNo());
-		      stmt.setBoolean(8, user.isRoot()); // Set the isRoot field
+		      stmt.setBoolean(8, user.isRoot());// Set the isRoot field
+		      stmt.setBoolean(9, user.isApproved());
 		        i =     stmt.executeUpdate();
 		      
 		    } catch (Exception e) {
@@ -61,35 +151,34 @@ public class UserModel {
 		  }
 		
 // this method checks and connects to the database for login purposes
-public static UserBean UserLogin(String name,String password) {
-    Connection con;
-    UserBean user = null;
-    try {
-      con = JDBCDataSource.getConnection();
-      PreparedStatement stmt = con.prepareStatement("Select * from user where name=? and password = ?");
-      stmt.setString(1,name);
-      stmt.setString(2,password);
-      ResultSet rs = stmt.executeQuery();
-      if(rs.next()) {
-        user = new UserBean();
-        System.out.println("ID: "+rs.getLong("id"));
-        user.setId(rs.getLong("id"));
-        user.setFirstName(rs.getString("firstName"));
-        user.setLastName(rs.getString("lastName"));
-        user.setName(rs.getString("name"));
-        user.setPassword(rs.getString("password"));
-        user.setDob(rs.getDate("dob"));
-        user.setMobileNo(rs.getString("mobileNo"));
-        user.setRoot(rs.getBoolean("isRoot")); // Get the isRoot field
-      }
-      
-    } catch (Exception e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
-    }
-    
-    return user;
-  }
+	  public static UserBean UserLogin(String name, String password) {
+		    Connection con;
+		    UserBean user = null;
+		    try {
+		        con = JDBCDataSource.getConnection();
+		        PreparedStatement stmt = con.prepareStatement("Select * from user where name=? and password = ?");
+		        stmt.setString(1, name);
+		        stmt.setString(2, password);
+		        ResultSet rs = stmt.executeQuery();
+		        if (rs.next()) {
+		            user = new UserBean();
+		            user.setId(rs.getLong("id"));
+		            user.setFirstName(rs.getString("firstName"));
+		            user.setLastName(rs.getString("lastName"));
+		            user.setName(rs.getString("name"));
+		            user.setPassword(rs.getString("password"));
+		            user.setDob(rs.getDate("dob"));
+		            user.setMobileNo(rs.getString("mobileNo"));
+		            user.setRoot(rs.getBoolean("isRoot"));
+		            user.setApproved(rs.getBoolean("isApproved")); // Set the approval status
+		        }
+
+		    } catch (Exception e) {
+		        e.printStackTrace();
+		    }
+
+		    return user;
+		}
 
 
 

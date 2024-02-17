@@ -67,4 +67,3 @@ public class dataTable extends HttpServlet {
         request.getRequestDispatcher(JWAView.showTable).forward(request, response);
     }
 }
-
