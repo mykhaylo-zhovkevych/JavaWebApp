@@ -46,7 +46,7 @@
 
 <body>
     <% String userSession = (String)session.getAttribute("user"); %>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
         <a class="navbar-brand" href="/JavaWebProject">
             <div class="box">
                 <div class="inner">

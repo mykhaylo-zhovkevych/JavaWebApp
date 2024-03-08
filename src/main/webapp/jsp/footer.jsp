@@ -10,10 +10,10 @@
 <body>
 <!--the footer for pages -->
 <!-- Footer -->
-<footer class="page-footer fixed-bottom">
+<footer class="page-footer">
     <div class="container">
         <!-- Copyright -->
-        <div class="text-center py-3">© 2023 Copyright:
+        <div class="text-center py-3">© 2024 Copyright:
             <a> MZ </a>
         </div>
         <!-- Copyright -->

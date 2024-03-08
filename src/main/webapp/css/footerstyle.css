@@ -1,7 +1,6 @@
-@charset "ISO-8859-1";
-/* Footer Styles */
+
+/* Footer Styles @charset "ISO-8859-1"; */
 .page-footer {
-    background: linear-gradient(to right, #00ff00, #0000ff); /* Gradient from green to blue */
-    color: white;
+    background: linear-gradient(to right, #00ff00, #0000ff); ;
     
 }

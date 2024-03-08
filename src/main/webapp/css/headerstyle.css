@@ -1,9 +1,14 @@
 .navbar {
-    background-color: #8000ff !important; /* Dark blue color */
-    border-bottom: 2px solid #1abc9c !important; /* Teal color */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important; /* Shadow effect */
+    background: linear-gradient(to right, #00ff00, #0000ff) !important; /* Dark blue color */
+    margin-bottom: 40px;
+    box-shadow: -9px 12px 10px 2px rgb(4 4 4 / 10%) !important; /* Shadow effect */
+    padding: 0.5rem 0rem !important;
+    padding-right: 20px !important;
 }
-
+.navbar-collapse{
+margin-left: 22px;
+	
+}
 .navbar-brand {
     color: #00ff00; /* White color */
     font-weight: bold;

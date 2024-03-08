@@ -58,7 +58,14 @@
         margin-top: 0;
     }
 }
+.card-header {
+background-color: rgb(185 221 255 / 56%) !important;
+border-bottom: 1px solid rgb(0 77 255) !important;
 
+}
+.card-body{
+background-color: rgb(185 221 255 / 56%) !important;
+}
 </style>
 
 

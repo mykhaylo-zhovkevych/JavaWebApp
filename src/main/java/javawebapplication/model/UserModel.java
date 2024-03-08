@@ -139,7 +139,7 @@ public class UserModel {
 		      stmt.setString(7 , user.getMobileNo());
 		      stmt.setBoolean(8, user.isRoot());// Set the isRoot field
 		      stmt.setBoolean(9, user.isApproved());
-		        i =     stmt.executeUpdate();
+		      i = stmt.executeUpdate();
 		      
 		    } catch (Exception e) {
 		      // TODO Auto-generated catch block
