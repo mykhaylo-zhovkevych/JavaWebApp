@@ -1,4 +1,5 @@
 <%@ include file="header.jsp"%>
+<%@ page import="javawebapplication.controller.JWAView" %>
 
 <html>
 
@@ -14,7 +15,7 @@
 <div class="sidebar">
 <h2>sidebar</h2>
         <ul>
-            <li><a href="#"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="<%=JWAView.HomeServlet%>"><i class="fas fa-home"></i>Home</a></li>
             <li><a href="#"><i class="fas fa-user"></i>Profile</a></li>
             <li><a href="#"><i class="fas fa-address-card"></i>About</a></li>
             <li><a href="#"><i class="fas fa-project-diagram"></i>portfolio</a></li>

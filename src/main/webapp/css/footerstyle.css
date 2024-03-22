@@ -1,6 +1,6 @@
 
 /* Footer Styles @charset "ISO-8859-1"; */
 .page-footer {
-    background: linear-gradient(to right, #00ff00, #0000ff); ;
-    
+    background: linear-gradient(to right, #00ff00, #0000ff);
+    background-size: 300% 100%;
 }

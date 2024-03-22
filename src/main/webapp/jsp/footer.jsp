@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/footerstyle.css">
 </head>
 <body>
+<script src="javascript/gradientFunctionHeader.js"></script>
 <!--the footer for pages -->
 <!-- Footer -->
 <footer class="page-footer">

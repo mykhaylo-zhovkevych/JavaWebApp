@@ -80,7 +80,6 @@ public class UserBean {
         isRoot = root;
     }
 
-
     public String getDefinition() {
         return definition;
     }

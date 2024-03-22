@@ -66,7 +66,8 @@ public class loginctl extends HttpServlet {
 	    UserBean user = new UserBean();
 	    String name = request.getParameter("name");
 	    String pwd = request.getParameter("password");
-	    HttpSession session = request.getSession(true);
+	
+	    
 	    user = UserModel.UserLogin(name, pwd);
 	    
 	    if (user != null) {
@@ -76,8 +77,18 @@ public class loginctl extends HttpServlet {
 	            ServletUtility.forward(JWAView.LoginView, request, response);
 	            return; // Stop processing since there's an error
 	        }
+	        // This line retrieves the current HttpSession associated with the request or, if there is no session and true is passed as an argument, creates a new one
+	        HttpSession session = request.getSession(true);
+	        //userBean for storing the entire UserBean object.
+	        session.setAttribute("userBean", user); 
+	        // This line stores the UserBean object, which likely contains information about the user such as their name, roles, etc., into the session under the attribute name "userBean". 
+	        // By storing the whole object, other parts of the application can retrieve and use the user's information as needed.
 	        
 	        session.setAttribute("user", user.getName());
+	        //This line stores just the user's name in the session under the attribute name "user". This can be useful for quick access to the user's name 
+	        // without needing to cast and retrieve the entire UserBean object, 
+	        // especially if the user's name is frequently displayed or checked.
+	        
 	        if (user.isRoot()) {
 	            // Redirect to root page for root user
 	            ServletUtility.redirect(JWAView.rootctl, request, response);

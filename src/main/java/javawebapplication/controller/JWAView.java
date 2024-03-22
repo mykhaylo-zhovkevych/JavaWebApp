@@ -46,5 +46,8 @@ public String rootVerifier = APP_CONTEXT + "/rootVerifier";
 
 public String SchieferJava = APP_CONTEXT + "/SchieferJava";
 
+public String java = PAGE_FOLDER + "/java.jsp";
+public String HomeServlet  = APP_CONTEXT + "/HomeServlet";
+
 
 }

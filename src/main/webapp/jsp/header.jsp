@@ -41,10 +41,10 @@
         window.history.forward();
     }
 </script>
-
+<!-- Add your new JavaScript block here -->
 </head>
-
 <body>
+<script src="javascript/gradientFunctionHeader.js"></script>
     <% String userSession = (String)session.getAttribute("user"); %>
     <nav class="navbar navbar-expand-lg navbar-light sticky-top">
         <a class="navbar-brand" href="/JavaWebProject">

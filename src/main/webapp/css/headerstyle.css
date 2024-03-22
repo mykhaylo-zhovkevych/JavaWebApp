@@ -1,5 +1,5 @@
 .navbar {
-    background: linear-gradient(to right, #00ff00, #0000ff) !important; /* Dark blue color */
+    background-image: linear-gradient(to right, rgb(0, 255, 0) 0%, rgb(0, 0, 255) 60%) ;
     margin-bottom: 40px;
     box-shadow: -9px 12px 10px 2px rgb(4 4 4 / 10%) !important; /* Shadow effect */
     padding: 0.5rem 0rem !important;

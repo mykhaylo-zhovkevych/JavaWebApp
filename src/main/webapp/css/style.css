@@ -9,8 +9,8 @@
 .overlay-box {
     padding: 500px 0px;
     box-sizing: border-box;
- 
     height: 100%;
+    margin-top: -40px;
 }
 
 .container {
