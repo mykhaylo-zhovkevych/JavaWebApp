@@ -39,7 +39,8 @@
     // Start the text change automatically
     changeText();
 </script>
-
+ 
+<!-- here should be like divs -->
 
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="margin-bottom: 10px;">
   <div class="carousel-inner">

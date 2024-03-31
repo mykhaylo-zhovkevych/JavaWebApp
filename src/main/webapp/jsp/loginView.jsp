@@ -1,4 +1,5 @@
 <style>
+
 .containerLF {
     display: flex;
     justify-content: space-between;
@@ -30,48 +31,53 @@
     border-color: #0056b3;
 }
 
-#error-message {
-    position: relative;
+
+
+.errorMessage, .successMessage {
+    color: red;; /* Default color, will be overridden for .errorMessage */
     font-size: 25px;
-    animation: fadeInOutAndFadeOut 5s ease-in-out, resetMargin 5s ease-in-out 5s forwards;
+    position: relative;
+    animation: fadeInOutAndFadeOut 5s ease-in-out forwards;
+    pointer-events: none; /* Prevent the message from blocking mouse events after fading out */
 }
 
-#success-message {
-    position: relative;
-    font-size: 25px;
-    animation: fadeInOutAndFadeOut 5s ease-in-out, resetMargin 5s ease-in-out 5s forwards;
+.successMessage {
+    color: green; /* Specific color for error messages */
 }
 
 @keyframes fadeInOutAndFadeOut {
     0% {
         opacity: 1;
-        margin-top: 10px;
+        visibility: visible;
+        max-height: 50px; /* Adjust based on the actual height of your messages */
     }
-    90%, 100% {
+    90% {
+        opacity: 1;
+        visibility: visible;
+        max-height: 50px;
+    }
+    100% {
         opacity: 0;
-        margin-top: 10px;
+        visibility: hidden;
+        max-height: 0;
     }
 }
 
-@keyframes resetMargin {
-    to {
-        margin-top: 0;
-    }
-}
 .card-header {
-background-color: rgb(185 221 255 / 56%) !important;
-border-bottom: 1px solid rgb(0 77 255) !important;
+background: radial-gradient(ellipse at top center, #0014ff66 0%, #0014ff 150%) !important;
+/*border-bottom: 1px solid rgb(0 77 255) !important;*/
 
 }
 .card-body{
-background-color: rgb(185 221 255 / 56%) !important;
+background: radial-gradient(ellipse at top center, #0014ff66 0%, #0014ff 150%) !important;
 }
+
 </style>
 
 
 <%@page import="javawebapplication.utitlity.ServletUtility" %>
-<script src="javascript\loginerror_script.js"></script>
-<script src="javascript\succesLogin"></script>
+
+<html>
 <body>
   <%@ include file="header.jsp"%>
   <main class="login-form" style="margin-top: 55px">
@@ -86,8 +92,15 @@ background-color: rgb(185 221 255 / 56%) !important;
             <div class="card-body">
             
               <form action="<%=JWAView.loginctl%>" method="post">
-              <h2 style="color: red" id="error-message"> <%=javawebapplication.utitlity.ServletUtility.getErrorMessage((jakarta.servlet.http.HttpServletRequest)request) %></h2>
-                 <h2 style="color: green" id="success-message"> <%=javawebapplication.utitlity.ServletUtility.getSuccessMessage((jakarta.servlet.http.HttpServletRequest)request) %></h2>
+            <h2 class="successMessage" style="margin-bottom: auto;">
+ 				   <%=ServletUtility.getSuccessMessage((jakarta.servlet.http.HttpServletRequest)request)%>
+					</h2>
+						<% String errorMessage = ServletUtility.getErrorMessage((jakarta.servlet.http.HttpServletRequest)request); %>
+							<% if(errorMessage != null && !errorMessage.isEmpty()) { %>
+  							  <h2 class="errorMessage" style="margin-bottom: auto;">
+     						   <%= errorMessage %>
+   							 </h2>
+								<% } %>
                 <div class="form-group row">
                   <label for="email_address" class="col-md-4 col-form-label text-md-right">User Name<font color="red">*</font></label>
                   <div class="col-md-6">
@@ -119,10 +132,13 @@ background-color: rgb(185 221 255 / 56%) !important;
       </div>
     </div>
   </main>
-  <div style="margin-top: 170px">
-    <%@ include file="footer.jsp"%>
-  </div>
+  <%@ include file="footer.jsp"%>
 </body>
+</html>
+
+
+
+
 
 
 

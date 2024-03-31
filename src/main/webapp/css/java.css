@@ -1,0 +1,236 @@
+.section { cursor: pointer; margin: 20px 0;
+    padding: 10px; 
+    background-color: #f0f0f0; 
+    border-radius: 8px;
+}
+    .section .content { display: none; 
+        cursor: auto; 
+       
+         
+    }
+    .closeButton {
+        cursor: pointer;
+        padding: 8px 16px; /* Adjust the padding to control the size of the button */
+        border: 1px solid #000000; /* Button border color and width */
+        border-radius: 4px; /* Rounded corners */
+        font-size: 1em; /* Adjust font size as needed */
+        color: #000000; /* Text color for the button */
+        text-align: center;
+        text-decoration: none;
+        display: grid; /* To keep the button size only as large as its content */
+        margin-top: 30px; /* Spacing around the button */
+        -webkit-transition-duration: 0.4s; /* Safari */
+        border-radius:25px;
+        transition-duration: 0.4s; /* Transition effect for when hovering over the button */
+    }
+    
+    .closeButton:hover {
+        background-color: #7e006b ; /* Color when the mouse hovers over the button */
+    }
+    
+    .section, .closeButton {
+        background: radial-gradient(
+            ellipse at top center,
+            #7e006b 0%,
+            #000000 150%
+            );
+
+    }
+
+    #publicContent {
+        position: relative;
+        background: radial-gradient(
+            ellipse at top center,
+            #7e006b 0%,
+            #000000 150%
+            );
+        padding: 20px;
+        margin-bottom: 30px;
+        border-radius: 8px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    
+    #publicContent h2 {
+        transition: color 0.3s ease-in-out;
+    }
+    
+    #publicContent:hover {
+        transform: translateY(-15px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    }
+    
+    #publicContent:hover h2 {
+        color: #c404a7;
+    }
+    
+    /* Transition effect for the entire container */
+    #publicContent p {
+        transition: transform 0.3s, opacity 0.3s;
+        transform-origin: top left;
+    }
+    
+    #publicContent:hover p {
+    	color: #857983;
+        transform: scale(1.5);
+        opacity: 0.7;
+        
+    }
+    
+
+
+    ol{
+        background: radial-gradient(
+            ellipse at top center,
+            rgb(107, 107, 107) 0%,
+            #ffffff 100%
+            );
+
+    }
+    body {
+        color: rgb(0, 0, 0);
+        
+        font-family: sans-serif;
+        line-height: 1.5;
+        background: radial-gradient(
+            ellipse at top center,
+            #590064 0%,
+            #000000 100%
+        );
+        background-size: cover;
+        min-height: 100vh;
+        margin: 0;
+    }
+
+
+.scroller ol,
+.scroller ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-gap: 1rem;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.scroller ol li,
+.scroller ul li {
+    flex: 1 1 240px;
+    min-width: 240px;
+    border: 1px solid #310038;
+    padding: 1rem;
+    position: relative;
+    overflow: hidden;
+    perspective: 9000px;
+    transform-style: preserve-3d;
+    perspective-origin: 50% 50%;
+    transition: color 0.5s ease-out;
+}
+
+.scroller ol li::before,
+.scroller ul li::before {
+ 
+    font-size: 5em;
+    font-weight: bold;
+    color: #c72bd2;
+    margin-bottom: 1rem;
+    line-height: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.scroller ol li::after,
+.scroller ul li::after {
+    content: "";
+    background-image: var(--bg); /* Fallback image if variable is not defined */
+    position: absolute;
+    inset: -20px;
+    background-size: cover;
+    transform: scale(1);
+    transition: transform 0.5s ease-out, opacity 0.4s linear;
+    opacity: 0;
+    z-index: -1;
+}
+
+.scroller ol li:hover,
+.scroller ul li:hover {
+    color: #ff00d9;
+}
+
+.scroller ol li:hover::after,
+.scroller ul li:hover::after {
+    transform: scale(1.1) rotate(4deg);
+    opacity: 0.8;
+}
+
+
+
+.scroller ol h2,
+.scroller ul h2 {
+    color: #440d44;
+    font-weight: normal;
+}
+
+.bottom-section{
+
+    background: radial-gradient(
+        ellipse at top center,
+        rgb(181, 181, 181) 0%,
+        #ffffff 100%
+        );
+
+}
+
+.bottom-elements {
+    margin: 0;
+}
+
+.list-counter{
+    font-size: 50px;
+    font-weight: bold;
+    padding-bottom: -20px;
+}
+
+#editor {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    min-height: 200px;
+    overflow: auto;
+}
+
+#publicContentModules {
+        position: relative;
+        background: radial-gradient(
+            ellipse at top center,
+            #7e006b 0%,
+            #000000 150%
+            );
+        padding: 20px;
+        margin-bottom: 30px;
+        border-radius: 8px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    
+    #publicContentModules h3 {
+        transition: color 0.3s ease-in-out;
+    }
+    
+    #publicContentModules:hover {
+        transform: translateY(-15px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    }
+    
+    #publicContentModules:hover h3 {
+        color: #7e006b;
+    }
+    
+    /* Transition effect for the entire container */
+  
+

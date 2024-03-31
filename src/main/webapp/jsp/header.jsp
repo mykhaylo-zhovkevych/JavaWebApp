@@ -44,6 +44,7 @@
 <!-- Add your new JavaScript block here -->
 </head>
 <body>
+
 <script src="javascript/gradientFunctionHeader.js"></script>
     <% String userSession = (String)session.getAttribute("user"); %>
     <nav class="navbar navbar-expand-lg navbar-light sticky-top">
@@ -99,7 +100,26 @@
             </div>
         </div>
     </nav>
+   <svg style="display: none;">
+  <defs>
+    <filter id="goo">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
+      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"></feColorMatrix>
+      <feBlend in="SourceGraphic" in2="goo"></feBlend>
+    </filter>
+  </defs>
+</svg>
+
+ <div class="gradients-container">
+    <div class="g1"></div>
+    <div class="g2"></div>
+    <div class="g3"></div>
+    <div class="g4"></div>
+    <div class="g5"></div>
+    <div class="interactive"></div>
+</div>
 </body>
+
 </html>
 
 

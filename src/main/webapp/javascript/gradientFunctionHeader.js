@@ -1,5 +1,6 @@
 const gradientSpeed = 0.0003; // The speed of the gradient movement
 
+
 function updateGradient() {
     const navbar = document.querySelector('.navbar'); // Select the navbar element
     const footer = document.querySelector('.page-footer'); // Select the page-footer element

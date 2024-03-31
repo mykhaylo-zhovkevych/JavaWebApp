@@ -82,6 +82,12 @@
   	<description></description>
   	<servlet-class>javawebapplication.controller.HomeServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>SaveSectionServlet</servlet-name>
+  	<display-name>SaveSectionServlet</display-name>
+  	<description></description>
+  	<servlet-class>javawebapplication.controller.SaveSectionServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>loginctl</servlet-name>
   	<url-pattern>/loginctl</url-pattern>
@@ -129,6 +135,10 @@
   <servlet-mapping>
   	<servlet-name>HomeServlet</servlet-name>
   	<url-pattern>/HomeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SaveSectionServlet</servlet-name>
+  	<url-pattern>/SaveSectionServlet</url-pattern>
   </servlet-mapping>
 
  
