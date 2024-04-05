@@ -1,4 +1,4 @@
-# Project Title
+# Project JavaWebApp
 
 Welcome to my project! This README provides an overview of what this project is about, its features.
 
