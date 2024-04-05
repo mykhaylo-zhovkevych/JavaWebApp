@@ -16,7 +16,7 @@ This project was for me like starting to learn Java from a web perspective. The 
 Here are some of the standout features of our project:
 
 - **Feature 1**: [A system is made where only one root user is allowed to be registered from the GUI side, so only the root user can add another root users manually in MySQL.]
-- **Feature 2**: [This code has a couple of filters that prevent just writing the correct URL, and this code uses sessions for user management. This code uses its own implementation of Servlet Utility that allows for a more flexible outcome.]
+- **Feature 2**: [This code has a couple of filters that prevent just writing the correct URL, and this code uses sessions for user management, and the user must first apply, only if the root authorises than the user has the right to enter his page. This code uses its own implementation of Servlet Utility that allows for a more flexible outcome.]
 - **Feature 3**: [This code has for the general user some encryption generator and a not fully implemented file upload feature in JS.]
 
 ***Note: This project was closed, and some features, as was intended, are not made or only partially working.***
