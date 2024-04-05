@@ -24,10 +24,6 @@
         transition-duration: 0.4s; /* Transition effect for when hovering over the button */
     }
     
-    .closeButton:hover {
-        background-color: #7e006b ; /* Color when the mouse hovers over the button */
-    }
-    
     .section, .closeButton {
         background: radial-gradient(
             ellipse at top center,
@@ -36,7 +32,10 @@
             );
 
     }
-
+    
+ 	.closeButton:hover {
+        background-color: #7e006b ; /* Color when the mouse hovers over the button */
+    }
     #publicContent {
         position: relative;
         background: radial-gradient(
@@ -82,7 +81,7 @@
     ol{
         background: radial-gradient(
             ellipse at top center,
-            rgb(107, 107, 107) 0%,
+            rgb(255, 255, 255) 0%,
             #ffffff 100%
             );
 
@@ -174,18 +173,19 @@
     font-weight: normal;
 }
 
-.bottom-section{
+.bottom-section {
 
-    background: radial-gradient(
-        ellipse at top center,
-        rgb(181, 181, 181) 0%,
-        #ffffff 100%
-        );
-
+    background: radial-gradient(ellipse at top center, rgb(255 255 255) 0%, #efefef 100%);
+	
 }
-
+#bottom-P{
+margin: 0rem;
+padding: 1rem;
+background: #FFFFFF;
+}
 .bottom-elements {
     margin: 0;
+   	padding: 0.5rem 1rem 0.5rem 1rem;
 }
 
 .list-counter{
@@ -233,4 +233,7 @@
     
     /* Transition effect for the entire container */
   
-
+#extra-p {
+	
+	margin: 2rem 1rem 1rem 0rem;
+}

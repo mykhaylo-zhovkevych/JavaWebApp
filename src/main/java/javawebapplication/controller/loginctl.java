@@ -55,6 +55,7 @@ public class loginctl extends HttpServlet {
 		        ServletUtility.setSuccessMessage("Logout was successful", request);
 		        ServletUtility.forward(JWAView.LoginView, request, response);
 		        return;
+		        // here will this not give any error messages it will receive http 500
 		    }
 		   ServletUtility.forward(JWAView.LoginView, request, response);
 		}
